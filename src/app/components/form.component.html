@@ -1,0 +1,4 @@
+<div class="form-group form-inline">
+  Text a message: <input #text class="form-control ml-2" type="text"/>
+  <button (click)="add(text.value); text.value=''">Add</button>
+</div>

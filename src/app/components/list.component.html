@@ -1,0 +1,35 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Messages</th>
+    <th scope="col">Likes</th>
+    <th scope="col">Dislikes</th>
+    <th scope="col">Remove</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let message of (dashboard$ | async)?.messages; index as i">
+    <td>
+      <ngb-highlight [result]="message.text"></ngb-highlight>
+    </td>
+    <td>
+      <ngb-highlight [result]="message.likes | number"></ngb-highlight>
+      <button type="button" class="btn btn-outline-primary" (click)="like(message)">
+        Like
+      </button>
+    </td>
+    <td>
+      <ngb-highlight [result]="message.dislikes | number"></ngb-highlight>
+      <button type="button" class="btn btn-outline-primary" (click)="dislike(message)">
+        Dislike
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-outline-danger" (click)="remove(message)">
+        Remove
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
